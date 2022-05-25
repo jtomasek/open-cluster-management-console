@@ -211,7 +211,12 @@ const InfraEnvironmentDetailsPage: React.FC<InfraEnvironmentDetailsPageProps> = 
                 <Suspense fallback={<Fragment />}>
                     <Switch>
                         <Route exact path={NavigationPath.infraEnvironmentOverview}>
-                            <DetailsTab infraEnv={infraEnv} infraAgents={infraAgents} bareMetalHosts={infraBMHs} />
+                            <DetailsTab
+                                infraEnv={infraEnv}
+                                infraAgents={infraAgents}
+                                bareMetalHosts={infraBMHs}
+                                infraNMStates={infraNMStates}
+                            />
                         </Route>
                         <Route exact path={NavigationPath.infraEnvironmentHosts}>
                             <HostsTab

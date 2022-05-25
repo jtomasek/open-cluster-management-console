@@ -15,10 +15,16 @@ const { EnvironmentDetails, EnvironmentErrors } = CIM
 type DetailsTabProps = {
     infraEnv: CIM.InfraEnvK8sResource
     infraAgents: CIM.AgentK8sResource[]
+    infraNMStates: CIM.NMStateK8sResource[]
     bareMetalHosts: CIM.BareMetalHostK8sResource[]
 }
 
-const DetailsTab: React.FC<DetailsTabProps> = ({ infraEnv, infraAgents, bareMetalHosts }) => (
+const updateStaticNetworkConfiguration = (values: unknown) => {
+    console.log('values', values)
+    throw 'not implemented'
+}
+
+const DetailsTab: React.FC<DetailsTabProps> = ({ infraEnv, infraAgents, infraNMStates, bareMetalHosts }) => (
     <AcmPageContent id="overview">
         <PageSection>
             <EnvironmentErrors infraEnv={infraEnv} docVersion={DOC_VERSION} />
@@ -30,8 +36,10 @@ const DetailsTab: React.FC<DetailsTabProps> = ({ infraEnv, infraAgents, bareMeta
                         onEditPullSecret={savePullSecret}
                         onEditSSHKey={saveSSHKey}
                         onEditNtpSources={onEditNtpSources}
+                        onEditStaticNetworkConfiguration={updateStaticNetworkConfiguration}
                         hasAgents={!!infraAgents.length}
                         hasBMHs={!!bareMetalHosts.length}
+                        infraNMStates={infraNMStates}
                     />
                 </CardBody>
             </Card>
