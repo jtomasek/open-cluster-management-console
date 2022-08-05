@@ -19,7 +19,7 @@ type DetailsTabProps = {
     bareMetalHosts: CIM.BareMetalHostK8sResource[]
 }
 
-const updateStaticNetworkConfiguration = (values: unknown) => {
+const updateNMStateConfigs = (values: unknown) => {
     console.log('values', values)
     throw 'not implemented'
 }
@@ -36,7 +36,7 @@ const DetailsTab: React.FC<DetailsTabProps> = ({ infraEnv, infraAgents, infraNMS
                         onEditPullSecret={savePullSecret}
                         onEditSSHKey={saveSSHKey}
                         onEditNtpSources={onEditNtpSources}
-                        onEditStaticNetworkConfiguration={updateStaticNetworkConfiguration}
+                        onEditNMStateConfigs={updateNMStateConfigs}
                         hasAgents={!!infraAgents.length}
                         hasBMHs={!!bareMetalHosts.length}
                         infraNMStates={infraNMStates}

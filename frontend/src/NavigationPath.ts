@@ -61,6 +61,7 @@ export enum NavigationPath {
     createInfraEnv = '/multicloud/infrastructure/environments/create',
     infraEnvironmentDetails = '/multicloud/infrastructure/environments/details/:namespace/:name',
     infraEnvironmentHosts = '/multicloud/infrastructure/environments/details/:namespace/:name/hosts',
+    infraEnvironmentNetworkConfiguration = '/multicloud/infrastructure/environments/details/:namespace/:name/network-configuration',
     infraEnvironmentOverview = '/multicloud/infrastructure/environments/details/:namespace/:name/overview',
 
     // Infrastructure - Automations

@@ -28,6 +28,7 @@ import {
 import { getInfraEnvNMStates, isBMPlatform } from '../utils'
 import DetailsTab from './DetailsTab'
 import HostsTab from './HostsTab'
+import NetworkConfigurationTab from './NetworkConfigurationTab'
 
 const {
     AddHostModal,
@@ -148,6 +149,22 @@ const InfraEnvironmentDetailsPage: React.FC<InfraEnvironmentDetailsPageProps> = 
                                         <InfraEnvHostsTabAgentsWarning infraAgents={infraAgents} />
                                     </Link>
                                 </AcmSecondaryNavItem>
+                                <AcmSecondaryNavItem
+                                    isActive={
+                                        location.pathname ===
+                                        NavigationPath.infraEnvironmentNetworkConfiguration
+                                            .replace(':namespace', match.params.namespace)
+                                            .replace(':name', match.params.name)
+                                    }
+                                >
+                                    <Link
+                                        to={NavigationPath.infraEnvironmentNetworkConfiguration
+                                            .replace(':namespace', match.params.namespace)
+                                            .replace(':name', match.params.name)}
+                                    >
+                                        {t('tab.networkConfiguration')}
+                                    </Link>
+                                </AcmSecondaryNavItem>
                             </AcmSecondaryNav>
                         }
                         actions={
@@ -227,6 +244,9 @@ const InfraEnvironmentDetailsPage: React.FC<InfraEnvironmentDetailsPageProps> = 
                                 aiConfigMap={aiConfigMap}
                                 infraNMStates={infraNMStates}
                             />
+                        </Route>
+                        <Route exact path={NavigationPath.infraEnvironmentNetworkConfiguration}>
+                            <NetworkConfigurationTab infraEnv={infraEnv} infraNMStates={infraNMStates} />
                         </Route>
                         <Route exact path={NavigationPath.infraEnvironmentDetails}>
                             <Redirect

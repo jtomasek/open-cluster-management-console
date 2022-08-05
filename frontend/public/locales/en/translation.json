@@ -2189,6 +2189,7 @@
     "tab.details": "Details",
     "tab.hosts": "Hosts",
     "tab.machinepools": "Machine pools",
+    "tab.networkConfiguration": "Network configuration",
     "tab.nodes": "Nodes",
     "tab.overview": "Overview",
     "tab.submariner": "Submariner add-ons",
